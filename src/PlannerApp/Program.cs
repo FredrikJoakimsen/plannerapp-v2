@@ -4,6 +4,8 @@ using PlannerApp;
 using System;
 using MudBlazor.Services;
 using Blazored.LocalStorage;
+using System.Net;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace PlannerApp
 {
@@ -16,7 +18,6 @@ namespace PlannerApp
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddHttpClient("PlannerApp.Api", client =>
             {
                 client.BaseAddress = new Uri("https://plannerapp-api.azurewebsites.net");
@@ -27,12 +28,12 @@ namespace PlannerApp
 
             builder.Services.AddMudServices();
             builder.Services.AddBlazoredLocalStorage(); 
+            builder.Services.AddAuthorizationCore();
+            builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationStateProvider>();
 
             await builder.Build().RunAsync();
         }
     }
-
-
 }
 
 
