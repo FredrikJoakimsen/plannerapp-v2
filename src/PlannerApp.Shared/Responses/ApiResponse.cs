@@ -8,13 +8,13 @@ namespace PlannerApp.Shared.Responses
 {
     public class ApiResponse
     {
-        public string Message { get; set; }
-        public string IsSuccess { get; set; }
+        public string ?Message { get; set; }
+        public string ?IsSuccess { get; set; }
     }
 
     public class ApiResponse<T> : ApiResponse
     {
-        public T Value { get; set; }
+        public T ?Value { get; set; }
     }
 
     
