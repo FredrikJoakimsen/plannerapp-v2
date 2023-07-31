@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\NewFolder1\**" />
+    <Compile Remove="Pages\NewFolder\**" />
+    <Content Remove="Pages\NewFolder1\**" />
+    <Content Remove="Pages\NewFolder\**" />
+    <EmbeddedResource Remove="Pages\NewFolder1\**" />
+    <EmbeddedResource Remove="Pages\NewFolder\**" />
+    <None Remove="Pages\NewFolder1\**" />
+    <None Remove="Pages\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.19" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.16" />
@@ -19,11 +30,6 @@
 
   <ItemGroup>
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\NewFolder1\" />
-    <Folder Include="Pages\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
