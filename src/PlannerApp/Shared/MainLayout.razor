@@ -2,7 +2,7 @@
 
 <MudLayout>
     <MudAppBar Elevation="1">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Primary" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h5" Class="ml-3">PlannerApp</MudText>
         <MudSpacer />
         <LoginDisplay />
@@ -13,20 +13,38 @@
     <MudMainContent>
         @Body
     </MudMainContent>
+    <MudSwitch @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool" Label="Dark Mode" />
+
+
 </MudLayout>
 
 
 
 
-<MudThemeProvider/>
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="MyCustomTheme"/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
 @code {
     bool _drawerOpen = true;
-
+    private bool _isDarkMode;
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
     }
+
+    MudTheme MyCustomTheme = new MudTheme()
+        {
+            Palette = new PaletteLight()
+            {
+                Primary  = Colors.Grey.Darken1,
+                AppbarBackground = Colors.Blue.Lighten1
+            },
+            PaletteDark = new PaletteDark()
+            {
+                Primary = Colors.Blue.Lighten1,
+                Background = Colors.Grey.Darken4
+                
+            }
+        };
 }

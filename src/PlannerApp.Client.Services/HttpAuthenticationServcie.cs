@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PlannerApp.Client.Services
 {
-    internal class HttpAuthenticationServcie : IAuthenticationService
+    public class HttpAuthenticationServcie : IAuthenticationService
     {
 
         public readonly HttpClient _client;

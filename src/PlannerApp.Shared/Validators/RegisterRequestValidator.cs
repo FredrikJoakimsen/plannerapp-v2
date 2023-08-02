@@ -14,7 +14,7 @@ namespace PlannerApp.Shared.Validators
         {
             RuleFor(p => p.Email)
                 .NotEmpty()
-                .WithMessage("EMail is Required")
+                .WithMessage("Email is Required")
                 .EmailAddress()
                 .WithMessage("Email is not a valid email address");
 
@@ -33,7 +33,7 @@ namespace PlannerApp.Shared.Validators
             RuleFor(p => p.Password)
                 .NotEmpty()
                 .WithMessage("Password is required")
-                .MaximumLength(5)
+                .MinimumLength(5)
                 .WithMessage("Password must be at least 5 charaters");
 
             RuleFor(p => p.ConfirmPassword)

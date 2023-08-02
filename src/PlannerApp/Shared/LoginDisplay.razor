@@ -6,13 +6,13 @@
 
 <AuthorizeView>
     <Authorized>
-        <MudMenu Icon="@Icons.Filled.Person" Color="Color.Secondary" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+        <MudMenu Icon="@Icons.Filled.Person" Color="Color.Primary" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
             <MudMenuItem>Welcome @context.User.FindFirst(ClaimTypes.GivenName).Value</MudMenuItem>
             <MudMenuItem OnClick="LogOutAsync">LogOut</MudMenuItem>
         </MudMenu>
     </Authorized>
     <NotAuthorized>
-        <MudIconButton Icon="@Icons.Filled.Login" Color="Color.Secondary" OnClick='() => Navigation.NavigateTo("/AuthenticationState/login")' />
+        <MudIconButton Icon="@Icons.Filled.Login" Color="Color.Secondary" OnClick='() => Navigation.NavigateTo("/authentication/login")' />
     </NotAuthorized>
 </AuthorizeView>
 
